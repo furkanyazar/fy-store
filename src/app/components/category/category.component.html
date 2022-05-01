@@ -13,7 +13,7 @@
   style="width: calc(100% - 30px); z-index: 1"
 >
   <div class="navbar-nav w-100 overflow-hidden">
-    <a href="#" class="nav-item nav-link" *ngFor="let category of categories">{{
+    <a class="nav-item nav-link" *ngFor="let category of categories" routerLink="/products/category/{{ category.categoryId }}">{{
       category.categoryName
     }}</a>
   </div>

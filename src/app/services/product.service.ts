@@ -18,4 +18,8 @@ export class ProductService {
     return this.httpClient.get<ListResponseModel<Product>>(this.apiUrl + 'GetAll')
   }
 
+  getAllByCategoryId(categoryId: number): Observable<ListResponseModel<Product>> {
+    return this.httpClient.get<ListResponseModel<Product>>(this.apiUrl + 'GetAllByCategoryId?categoryId=' + categoryId)
+  }
+
 }
