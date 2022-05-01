@@ -11,6 +11,8 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductComponent implements OnInit {
 
   products: Product[]
+  numberOfProducts: number
+  page: number = 1
 
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) { }
 
@@ -26,6 +28,7 @@ export class ProductComponent implements OnInit {
   getAll(): void {
     this.productService.getAll().subscribe(result => {
       this.products = result.data
+      this.numberOfProducts = result.data.length
     })
   }
 
