@@ -12,6 +12,7 @@ import { Title } from 'src/app/constants/title';
 })
 export class ShopComponent implements OnInit {
 
+  dataLoaded: boolean = false
   products: Product[]
   numberOfProducts: number
   page: number = 1
@@ -32,12 +33,15 @@ export class ShopComponent implements OnInit {
     this.productService.getAll().subscribe(result => {
       this.products = result.data
       this.numberOfProducts = result.data.length
+      this.dataLoaded = true
     })
   }
 
   getAllByCategoryId(categoryId: number): void {
     this.productService.getAllByCategoryId(categoryId).subscribe(result => {
       this.products = result.data
+      this.numberOfProducts = result.data.length
+      this.dataLoaded = true
     })
   }
 
