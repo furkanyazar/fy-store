@@ -3,16 +3,16 @@ import { Title } from 'src/app/constants/title';
 import { TitleService } from 'src/app/services/title.service';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class ContactComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
   constructor(private titleService: TitleService) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Contact - ' + Title.BASE_TITLE)
+    this.titleService.setTitle('Home - ' + Title.BASE_TITLE)
   }
 
 }

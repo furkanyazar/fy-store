@@ -1,16 +1,16 @@
-import { TitleService } from './../../services/title.service';
-import { ProductService } from './../../services/product.service';
-import { Product } from './../../models/product';
+import { TitleService } from '../../services/title.service';
+import { ProductService } from '../../services/product.service';
+import { Product } from '../../models/product';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from 'src/app/constants/title';
 
 @Component({
   selector: 'app-product',
-  templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  templateUrl: './shop.component.html',
+  styleUrls: ['./shop.component.css']
 })
-export class ProductComponent implements OnInit {
+export class ShopComponent implements OnInit {
 
   products: Product[]
   numberOfProducts: number
@@ -19,7 +19,7 @@ export class ProductComponent implements OnInit {
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private titleService: TitleService) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Products - ' + Title.BASE_TITLE)
+    this.titleService.setTitle('Shop - ' + Title.BASE_TITLE)
     this.activatedRoute.params.subscribe(params => {
       if (params['categoryId'])
         this.getAllByCategoryId(params['categoryId'])

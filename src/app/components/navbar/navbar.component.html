@@ -20,7 +20,7 @@
           <a
             class="nav-item nav-link"
             *ngFor="let category of categories"
-            routerLink="/products/category/{{ category.categoryId }}"
+            routerLink="/shop/category/{{ category.categoryId }}"
             >{{ category.categoryName }}</a
           >
         </div>
@@ -30,7 +30,7 @@
       <nav
         class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0"
       >
-        <a href="#" class="text-decoration-none d-block d-lg-none">
+        <a class="text-decoration-none d-block d-lg-none" routerLink="/">
           <h1 class="m-0 display-5 font-weight-semi-bold">
             <span class="text-primary font-weight-bold border px-3 mr-1">E</span
             >Shopper
@@ -57,8 +57,8 @@
             >
             <a
               class="nav-item nav-link"
-              routerLink="/products"
-              [class.active]="path.includes('/products')"
+              routerLink="/shop"
+              [class.active]="path.includes('/shop')"
               >Shop</a
             >
             <a
@@ -69,8 +69,8 @@
             >
           </div>
           <div class="navbar-nav ml-auto py-0">
-            <a href="#" class="nav-item nav-link">Login</a>
-            <a href="#" class="nav-item nav-link">Register</a>
+            <a class="nav-item nav-link" routerLink="/">Login</a>
+            <a class="nav-item nav-link" routerLink="/">Register</a>
           </div>
         </div>
       </nav>
