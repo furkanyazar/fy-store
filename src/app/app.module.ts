@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgxScrollTopModule } from 'ngx-scrolltop';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { VatAddedPipe } from './pipes/vat-added.pipe';
     TopbarComponent,
     NavbarComponent,
     FooterComponent,
-    VatAddedPipe
+    VatAddedPipe,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
