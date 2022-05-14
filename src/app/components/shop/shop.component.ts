@@ -23,7 +23,7 @@ export class ShopComponent implements OnInit {
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private titleService: TitleService, private toastrService: ToastrService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Shop - ' + Title.BASE_TITLE)
+    this.titleService.setTitle('Shop - ' + Title)
     this.activatedRoute.params.subscribe(params => {
       if (params['categoryId'])
         this.getAllByCategoryId(params['categoryId'])

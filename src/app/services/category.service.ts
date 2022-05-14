@@ -10,7 +10,7 @@ import { Category } from '../models/category';
 })
 export class CategoryService {
 
-  private apiUrl: string = ApiUrl.API_URL + 'Categories/'
+  private apiUrl: string = ApiUrl + 'Categories/'
 
   constructor(private httpClient: HttpClient) { }
 

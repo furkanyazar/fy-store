@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   constructor(private titleService: TitleService) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Home - ' + Title.BASE_TITLE)
+    this.titleService.setTitle('Home - ' + Title)
   }
 
 }

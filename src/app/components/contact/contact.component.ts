@@ -12,7 +12,7 @@ export class ContactComponent implements OnInit {
   constructor(private titleService: TitleService) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Contact - ' + Title.BASE_TITLE)
+    this.titleService.setTitle('Contact - ' + Title)
   }
 
 }

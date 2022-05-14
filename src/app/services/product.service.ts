@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProductService {
 
-  apiUrl: string = ApiUrl.API_URL + 'Products/'
+  apiUrl: string = ApiUrl + 'Products/'
 
   constructor(private httpClient: HttpClient) { }
 
