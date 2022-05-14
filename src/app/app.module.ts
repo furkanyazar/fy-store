@@ -1,7 +1,9 @@
+import { FilterPipe } from './pipes/filter.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,14 +25,16 @@ import { HomeComponent } from './components/home/home.component';
     FooterComponent,
     VatAddedPipe,
     ContactComponent,
-    HomeComponent
+    HomeComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
-    NgxScrollTopModule
+    NgxScrollTopModule,
+    FormsModule
   ],
   providers: [
     Title

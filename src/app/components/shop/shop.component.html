@@ -212,21 +212,20 @@
       <div class="row pb-3">
         <div class="col-12 pb-1">
           <div class="d-flex align-items-center justify-content-between mb-4">
-            <form action="#" method="dialog">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Search by name"
-                  required
-                />
-                <div class="input-group-append">
-                  <span class="input-group-text bg-transparent text-primary">
-                    <i class="fa fa-search"></i>
-                  </span>
-                </div>
+            <div class="input-group">
+              <input
+                [(ngModel)]="filterText"
+                type="text"
+                class="form-control"
+                placeholder="Search by name"
+                required
+              />
+              <div class="input-group-append">
+                <span class="input-group-text bg-transparent text-primary">
+                  <i class="fa fa-search"></i>
+                </span>
               </div>
-            </form>
+            </div>
             <div class="dropdown ml-4">
               <button
                 class="btn border dropdown-toggle"
@@ -253,6 +252,7 @@
           class="col-lg-4 col-md-6 col-sm-12 pb-1"
           *ngFor="
             let product of products
+              | filter: filterText
               | paginate
                 : {
                     itemsPerPage: 9,
@@ -297,6 +297,7 @@
         </div>
       </div>
       <pagination-template
+        *ngIf="numberOfProducts > 9"
         #p="paginationApi"
         (pageChange)="page = $event"
         (pageBoundsCorrection)="page = $event"

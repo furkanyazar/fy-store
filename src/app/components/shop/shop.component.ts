@@ -16,6 +16,7 @@ export class ShopComponent implements OnInit {
   products: Product[]
   numberOfProducts: number
   page: number = 1
+  filterText: string
 
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private titleService: TitleService) { }
 
