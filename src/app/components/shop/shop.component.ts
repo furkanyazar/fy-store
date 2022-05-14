@@ -1,9 +1,11 @@
+import { CartService } from './../../services/cart.service';
 import { TitleService } from '../../services/title.service';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Title } from 'src/app/constants/title';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-product',
@@ -18,7 +20,7 @@ export class ShopComponent implements OnInit {
   page: number = 1
   filterText: string
 
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private titleService: TitleService) { }
+  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute, private titleService: TitleService, private toastrService: ToastrService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('Shop - ' + Title.BASE_TITLE)
@@ -44,6 +46,11 @@ export class ShopComponent implements OnInit {
       this.numberOfProducts = result.data.length
       this.dataLoaded = true
     })
+  }
+
+  addToCart(product: Product): void {
+    this.cartService.addToCart(product)
+    this.toastrService.success("Sepete eklendi", product.productName)
   }
 
 }
