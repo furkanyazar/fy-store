@@ -1,0 +1,72 @@
+<app-topbar></app-topbar>
+<app-navbar></app-navbar>
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+  <div
+    class="d-flex flex-column align-items-center justify-content-center"
+    style="min-height: 300px"
+  >
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">Login</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a routerLink="/">Home</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Login</p>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Login Start -->
+<div class="container-fluid pt-5">
+  <div class="row px-xl-5">
+    <div class="col-lg-4 mb-5 mx-auto">
+      <div class="contact-form">
+        <div id="success"></div>
+        <form name="login" id="loginForm" [formGroup]="loginForm">
+          <div class="control-group">
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Your Email"
+              required="required"
+              data-validation-required-message="Please enter your email"
+            />
+            <p class="help-block text-danger"></p>
+          </div>
+          <div class="control-group">
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Your Password"
+              required="required"
+              data-validation-required-message="Please enter your password"
+            />
+            <p class="help-block text-danger"></p>
+          </div>
+          <div>
+            <button
+              class="btn btn-primary py-2 px-4"
+              id="loginButton"
+              (click)="login()"
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Login End -->
+
+<app-footer></app-footer>
+
+<!-- Back to Top -->
+<button ngxScrollTop class="btn btn-primary back-to-top">
+  <i class="fa fa-angle-double-up"></i>
+</button>
