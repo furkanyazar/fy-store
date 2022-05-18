@@ -1,3 +1,4 @@
+import { ProductAddComponent } from './components/product-add/product-add.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'product-add', component: ProductAddComponent }
 ];
 
 @NgModule({

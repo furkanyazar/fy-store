@@ -1,4 +1,5 @@
-import { HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -21,6 +22,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ProductAddComponent } from './components/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { RegisterComponent } from './components/register/register.component';
     FilterPipe,
     CartComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +55,12 @@ import { RegisterComponent } from './components/register/register.component';
     SweetAlert2Module.forRoot()
   ],
   providers: [
-    Title
+    Title,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
