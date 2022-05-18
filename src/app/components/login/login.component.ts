@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
       let loginModel: LoginModel = Object.assign({}, this.loginForm.value)
 
       this.authService.login(loginModel).subscribe(response => {
-        this.router.navigate(['/shop'])
+        this.router.navigate(['shop'])
         this.toastrService.success(response.message)
         localStorage.setItem('token', response.data.token)
       }, responseError => {

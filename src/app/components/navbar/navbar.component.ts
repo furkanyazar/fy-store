@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CategoryService } from './../../services/category.service';
 import { Category } from './../../models/category';
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -36,8 +37,11 @@ export class NavbarComponent implements OnInit {
 
   logout(): void {
     this.authService.logout()
-    this.router.navigate(['/shop'])
     this.toastrService.success('Çıkış yapıldı')
+
+    setTimeout(() => {
+      window.location.reload()
+    }, 2000)
   }
 
 }

@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/dfa1fcb5-9c97-4c13-97f6-1e5b323e7609/resourceGroups/furkan/providers/Microsoft.Web/sites/fystore",
+    "appService.deploySubpath": "dist\\fy-store"
+}
