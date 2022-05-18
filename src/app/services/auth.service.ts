@@ -27,4 +27,8 @@ export class AuthService {
   isAuth(): boolean {
     return localStorage.getItem('token') ? true : false
   }
+
+  logout(): void {
+    localStorage.removeItem('token')
+  }
 }

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { TitleService } from './../../services/title.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginModel } from './../../models/loginModel';
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private toastrService: ToastrService, private titleService: TitleService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private toastrService: ToastrService, private titleService: TitleService, private router: Router) { }
 
   ngOnInit(): void {
     this.createLoginForm()
@@ -34,6 +35,7 @@ export class LoginComponent implements OnInit {
       let loginModel: LoginModel = Object.assign({}, this.loginForm.value)
 
       this.authService.login(loginModel).subscribe(response => {
+        this.router.navigate(['/shop'])
         this.toastrService.success(response.message)
         localStorage.setItem('token', response.data.token)
       }, responseError => {

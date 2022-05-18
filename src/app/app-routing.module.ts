@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { LoginGuard } from './guards/login.guard';
 import { ProductAddComponent } from './components/product-add/product-add.component';
@@ -16,8 +17,8 @@ const routes: Routes = [
   { path: 'shop/category/:categoryId', component: ShopComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'product-add', component: ProductAddComponent, canActivate: [LoginGuard] },
   { path: 'shop/:productId', component: ProductDetailComponent }
 ];

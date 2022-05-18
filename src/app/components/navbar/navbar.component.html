@@ -69,9 +69,13 @@
               >Contact</a
             >
           </div>
-          <div class="navbar-nav ml-auto py-0">
+          <div class="navbar-nav ml-auto py-0" *ngIf="!auth">
             <a class="nav-item nav-link" routerLink="/login">Login</a>
             <a class="nav-item nav-link" routerLink="/register">Register</a>
+          </div>
+          <div class="navbar-nav ml-auto py-0" *ngIf="auth">
+            <a class="nav-item nav-link" routerLink="/product-add">Add Product</a>
+            <a (click)="logout()" type="button" class="nav-item nav-link">Logout</a>
           </div>
         </div>
       </nav>

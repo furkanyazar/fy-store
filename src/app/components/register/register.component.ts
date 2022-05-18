@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { TitleService } from './../../services/title.service';
 import { Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private toastrService: ToastrService, private titleService: TitleService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private toastrService: ToastrService, private titleService: TitleService, private router: Router) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('Register - ' + Title)
@@ -38,6 +39,7 @@ export class RegisterComponent implements OnInit {
       let registerModel: RegisterModel = Object.assign({}, this.registerForm.value)
 
       this.authService.register(registerModel).subscribe(response => {
+        this.router.navigate(['/shop'])
         this.toastrService.success(response.message)
         localStorage.setItem('token', response.data.token)
       }, responseError => {
