@@ -1,3 +1,4 @@
+import { LoginGuard } from './guards/login.guard';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'product-add', component: ProductAddComponent }
+  { path: 'product-add', component: ProductAddComponent, canActivate: [LoginGuard] }
 ];
 
 @NgModule({
