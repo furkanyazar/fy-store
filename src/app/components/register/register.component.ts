@@ -1,3 +1,4 @@
+import { TitleService } from './../../services/title.service';
 import { Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from './../../services/auth.service';
@@ -5,6 +6,7 @@ import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { RegisterModel } from 'src/app/models/registerModel';
+import { Title } from 'src/app/constants/title';
 
 @Component({
   selector: 'app-register',
@@ -15,9 +17,10 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private toastrService: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private toastrService: ToastrService, private titleService: TitleService) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Register - ' + Title)
     this.createRegisterForm()
   }
 

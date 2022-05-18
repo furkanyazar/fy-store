@@ -1,3 +1,5 @@
+import { Title } from './../../constants/title';
+import { TitleService } from './../../services/title.service';
 import { ProductModel } from './../../models/productModel';
 import { ProductService } from './../../services/product.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -16,9 +18,10 @@ export class ProductAddComponent implements OnInit {
   addProductForm: FormGroup
   categories: Category[]
 
-  constructor(private formBuilder: FormBuilder, private productService: ProductService, private toastrService: ToastrService, private categoryService: CategoryService) { }
+  constructor(private formBuilder: FormBuilder, private productService: ProductService, private toastrService: ToastrService, private categoryService: CategoryService, private titleService: TitleService) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Add Product - ' + Title)
     this.createAddProductForm()
     this.getAllCategories()
   }

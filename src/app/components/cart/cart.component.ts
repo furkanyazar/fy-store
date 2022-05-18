@@ -1,3 +1,5 @@
+import { Title } from './../../constants/title';
+import { TitleService } from './../../services/title.service';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from './../../models/product';
 import { CartService } from './../../services/cart.service';
@@ -14,9 +16,10 @@ export class CartComponent implements OnInit {
   cartItems: CartItem[]
   subtotal: number
 
-  constructor(private cartService: CartService, private toastrService: ToastrService) { }
+  constructor(private cartService: CartService, private toastrService: ToastrService, private titleService: TitleService) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Cart - ' + Title)
     this.getCartItems()
   }
 

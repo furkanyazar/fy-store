@@ -1,8 +1,10 @@
+import { TitleService } from './../../services/title.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginModel } from './../../models/loginModel';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from "@angular/forms";
+import { Title } from 'src/app/constants/title';
 
 @Component({
   selector: 'app-login',
@@ -13,13 +15,14 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private toastrService: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private toastrService: ToastrService, private titleService: TitleService) { }
 
   ngOnInit(): void {
     this.createLoginForm()
   }
 
   createLoginForm(): void {
+    this.titleService.setTitle('Login - ' + Title)
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required]

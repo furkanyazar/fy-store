@@ -1,3 +1,4 @@
+import { SingleResponseModel } from './../models/singleResponseModel';
 import { ProductModel } from './../models/productModel';
 import { Product } from './../models/product';
 import { ListResponseModel } from './../models/listResponseModel';
@@ -26,6 +27,10 @@ export class ProductService {
 
   add(product: ProductModel): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + 'Add', product)
+  }
+
+  getById(id: number): Observable<SingleResponseModel<Product>> {
+    return this.httpClient.get<SingleResponseModel<Product>>(this.apiUrl + 'GetById?productId=' + id)
   }
 
 }
