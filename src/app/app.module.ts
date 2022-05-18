@@ -24,6 +24,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     LoginComponent,
     RegisterComponent,
     ProductAddComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

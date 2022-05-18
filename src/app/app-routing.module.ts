@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthGuard } from './guards/auth.guard';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { LoginGuard } from './guards/login.guard';
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
   { path: 'product-add', component: ProductAddComponent, canActivate: [LoginGuard] },
-  { path: 'shop/:productId', component: ProductDetailComponent }
+  { path: 'shop/:productId', component: ProductDetailComponent },
+  { path: '404', component: NotFoundComponent },
+  { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({
