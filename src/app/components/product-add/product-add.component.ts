@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Category } from 'src/app/models/category';
 import { CategoryService } from 'src/app/services/category.service';
+import { ValidationErrorDetails } from 'src/app/models/validationErrorDetails';
 
 @Component({
   selector: 'app-product-add',
@@ -17,6 +18,7 @@ export class ProductAddComponent implements OnInit {
 
   addProductForm: FormGroup
   categories: Category[]
+  validationErrors: ValidationErrorDetails
 
   constructor(private formBuilder: FormBuilder, private productService: ProductService, private toastrService: ToastrService, private categoryService: CategoryService, private titleService: TitleService) { }
 
@@ -44,7 +46,14 @@ export class ProductAddComponent implements OnInit {
         this.toastrService.success(response.message)
         this.createAddProductForm()
       }, responseError => {
-        this.toastrService.error(responseError.error.Message)
+        if (responseError.status == 400) {
+          this.validationErrors = responseError.error
+          this.validationErrors.Errors.forEach(err => {
+            this.toastrService.error(err.ErrorMessage)
+          })
+        } else {
+          this.toastrService.error(responseError.error.Message)
+        }
       })
     }
   }
